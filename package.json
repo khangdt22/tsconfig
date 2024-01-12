@@ -1,0 +1,48 @@
+{
+    "name": "@kdtjs/tsconfig",
+    "type": "module",
+    "version": "0.0.1",
+    "description": "Shared TypeScript config for my projects",
+    "author": "Diep Dang <khangdt310722@gmail.com>",
+    "license": "MIT",
+    "homepage": "https://github.com/kdtjs/tsconfig",
+    "repository": "github:kdtjs/tsconfig",
+    "bugs": {
+        "email": "khangdt310722@gmail.com",
+        "url": "https://github.com/kdtjs/tsconfig/issues"
+    },
+    "exports": {
+        ".": "./tsconfig.json",
+        "./lib": "./tsconfig.lib.json",
+        "./tsconfig.lib.json": "./tsconfig.lib.json",
+        "./vue": "./tsconfig.vue.json",
+        "./tsconfig.vue.json": "./tsconfig.vue.json"
+    },
+    "main": "tsconfig.json",
+    "files": [
+        "tsconfig.json",
+        "tsconfig.*.json"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "release": "np --no-yarn --no-release-draft --yolo --message='chore: release v%s'",
+        "prepare": "simple-git-hooks"
+    },
+    "peerDependencies": {
+        "typescript": ">=5.0"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "latest",
+        "@commitlint/config-conventional": "latest",
+        "np": "latest",
+        "simple-git-hooks": "latest"
+    },
+    "commitlint": {
+        "extends": "@commitlint/config-conventional"
+    },
+    "simple-git-hooks": {
+        "commit-msg": "npx --no -- commitlint --edit ${1}"
+    }
+}
